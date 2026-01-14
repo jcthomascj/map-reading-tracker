@@ -1,60 +1,47 @@
 body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  margin: 0;
-  background: #fafafa;
+  margin: 20px;
+  background: #f8f9fa;
   color: #222;
 }
 
-header {
-  padding: 1rem;
-  background: #ffffff;
-  border-bottom: 1px solid #ddd;
+h1 {
   text-align: center;
 }
 
-header h1 {
-  margin: 0;
-  font-size: 1.6rem;
-}
-
-header p {
-  margin: 0.3rem 0 0;
-  color: #666;
-}
-
-.month {
-  margin: 1rem;
-  background: #fff;
-  border-radius: 10px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
-  overflow: hidden;
-}
-
-.month h2 {
-  margin: 0;
-  padding: 0.6rem 1rem;
-  background: #f0f0f0;
-  font-size: 1.1rem;
+h2 {
+  text-align: center;
+  font-weight: normal;
+  color: #555;
 }
 
 .day {
   display: flex;
-  align-items: center;
-  padding: 0.6rem 1rem;
-  border-top: 1px solid #eee;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 10px;
+  margin-bottom: 6px;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.08);
 }
 
-.day label {
-  flex: 1;
-  cursor: pointer;
+.day.today {
+  border-left: 6px solid #3b82f6;
+  background: #eef4ff;
 }
 
-.day input {
-  margin-right: 0.6rem;
+.date {
+  font-weight: bold;
+  width: 90px;
+  flex-shrink: 0;
 }
 
-/* TODAY GLOW */
-.today {
-  background: linear-gradient(90deg, #fff4c2, #fffdf0);
-  border-left: 5px solid #f0c040;
+.reading {
+  flex-grow: 1;
+}
+
+input[type="checkbox"] {
+  transform: scale(1.2);
+  margin-top: 3px;
 }
