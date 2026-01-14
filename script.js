@@ -161,27 +161,47 @@ const readings = {
   "2026-06-17": "Moroni 9:19–26, 10"
 };
 
-// ---------- APP LOGIC (unchanged, safe) ----------
+// =======================
+// DATE FIX (LOCAL TIME ONLY)
+// =======================
+
+const today = new Date();
+const localToday = new Date(
+  today.getFullYear(),
+  today.getMonth(),
+  today.getDate()
+);
+
+const todayStr =
+  localToday.getFullYear() +
+  "-" +
+  String(localToday.getMonth() + 1).padStart(2, "0") +
+  "-" +
+  String(localToday.getDate()).padStart(2, "0");
+
+// =======================
+// APP LOGIC
+// =======================
 
 const calendar = document.getElementById("calendar");
 const progressText = document.getElementById("progress-text");
 const progressFill = document.getElementById("progress-fill");
 
-const today = new Date();
-today.setHours(0, 0, 0, 0);
-const todayStr = today.toLocaleDateString("en-CA");
 const saved = JSON.parse(localStorage.getItem("completedDays") || "{}");
 
 let total = 0;
 let completed = 0;
 let currentMonth = "";
 
-Object.entries(readings).forEach(([date, reading]) => {
+Object.keys(readings).sort().forEach(date => {
   total++;
   if (saved[date]) completed++;
 
-  const d = new Date(date);
-  const monthName = d.toLocaleString("default", { month: "long", year: "numeric" });
+  const d = new Date(date + "T00:00:00");
+  const monthName = d.toLocaleString("default", {
+    month: "long",
+    year: "numeric"
+  });
 
   if (monthName !== currentMonth) {
     currentMonth = monthName;
@@ -200,7 +220,7 @@ Object.entries(readings).forEach(([date, reading]) => {
     <input type="checkbox" ${saved[date] ? "checked" : ""}>
     <div class="reading">
       <div class="date">${d.toDateString()}</div>
-      <div>${reading}</div>
+      <div>${readings[date]}</div>
     </div>
   `;
 
@@ -212,6 +232,10 @@ Object.entries(readings).forEach(([date, reading]) => {
 
   calendar.lastChild.appendChild(dayDiv);
 });
+
+// =======================
+// PROGRESS BAR
+// =======================
 
 const percent = Math.round((completed / total) * 100);
 progressText.textContent = `${completed} of ${total} days completed (${percent}%)`;
