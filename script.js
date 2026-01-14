@@ -171,7 +171,7 @@ Object.entries(readings).forEach(([date, text]) => {
 
   row.innerHTML = `
     <input type="checkbox">
-    <div class="date">${new Date(date).toLocaleDateString(undefined, {
+    <div class="date">${new Date(date + "T12:00:00").toLocaleDateString(undefined, {
       month: "short",
       day: "numeric"
     })}</div>
