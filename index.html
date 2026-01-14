@@ -8,15 +8,21 @@
 </head>
 <body>
 
-  <h1>2026 Reading Tracker</h1>
-  <p class="subtitle">Starting Wednesday, January 14, 2026</p>
+  <header>
+    <h1>2026 Reading Tracker</h1>
+    <p class="subtitle">Starting Wednesday, January 14, 2026</p>
+  </header>
 
-  <div id="progress-container">
-    <div id="progress-bar"></div>
-  </div>
-  <p id="progress-text"></p>
+  <!-- ✅ PROGRESS BAR -->
+  <section id="progress-section">
+    <div id="progress-text">0 of 0 days completed (0%)</div>
+    <div class="progress-bar">
+      <div id="progress-fill"></div>
+    </div>
+  </section>
 
-  <div id="tracker"></div>
+  <!-- ✅ CALENDAR CONTAINER -->
+  <main id="calendar"></main>
 
   <script src="script.js"></script>
 </body>
