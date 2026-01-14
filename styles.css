@@ -1,64 +1,90 @@
 body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  margin: 20px;
-  background: #f9fafb;
-  color: #111827;
+  margin: 0;
+  padding: 0;
+  background: #f5f6f8;
+  color: #222;
 }
 
-h1 {
+header {
   text-align: center;
-  margin-bottom: 4px;
+  padding: 1.5rem 1rem 0.5rem;
 }
 
 .subtitle {
-  text-align: center;
-  color: #6b7280;
-  margin-bottom: 20px;
+  color: #555;
+  margin-top: 0.25rem;
 }
 
-#progress-container {
-  width: 100%;
-  height: 12px;
-  background: #e5e7eb;
-  border-radius: 6px;
-  overflow: hidden;
-  margin-bottom: 6px;
-}
-
-#progress-bar {
-  height: 100%;
-  width: 0%;
-  background: #3b82f6;
-  transition: width 0.3s ease;
+/* Progress */
+#progress-section {
+  max-width: 800px;
+  margin: 1rem auto;
+  padding: 0 1rem;
 }
 
 #progress-text {
-  text-align: center;
-  color: #4b5563;
-  margin-bottom: 24px;
+  font-size: 0.9rem;
+  margin-bottom: 0.25rem;
+}
+
+.progress-bar {
+  height: 10px;
+  background: #ddd;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+#progress-fill {
+  height: 100%;
+  width: 0%;
+  background: #4caf50;
+  transition: width 0.3s ease;
+}
+
+/* Calendar */
+#calendar {
+  max-width: 800px;
+  margin: 1rem auto 3rem;
+  padding: 0 1rem;
+}
+
+.month {
+  margin-bottom: 2rem;
+}
+
+.month h2 {
+  border-bottom: 2px solid #ccc;
+  padding-bottom: 0.25rem;
 }
 
 .day {
+  background: white;
+  border-radius: 10px;
+  padding: 0.75rem;
+  margin-top: 0.5rem;
   display: flex;
+  gap: 0.75rem;
   align-items: flex-start;
-  gap: 10px;
-  padding: 10px;
-  border-bottom: 1px solid #e5e7eb;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
 }
 
 .day.today {
-  background: #eef2ff;
-  border-left: 4px solid #6366f1;
+  border: 2px solid #ffb703;
+  background: #fff7e0;
+  box-shadow: 0 0 10px rgba(255,183,3,0.6);
 }
 
-.day label {
-  cursor: pointer;
-}
-
-.date {
-  font-weight: 600;
+.day.completed {
+  opacity: 0.6;
 }
 
 .reading {
-  color: #374151;
+  flex: 1;
+}
+
+.date {
+  font-weight: bold;
+  font-size: 0.9rem;
+  color: #333;
 }
