@@ -167,7 +167,10 @@ const calendar = document.getElementById("calendar");
 const progressText = document.getElementById("progress-text");
 const progressFill = document.getElementById("progress-fill");
 
-const todayStr = new Date().toISOString().split("T")[0];
+const today = new Date();
+today.setHours(0, 0, 0, 0);
+const todayStr = today.toLocaleDateString("en-CA");
+
 const saved = JSON.parse(localStorage.getItem("completedDays") || "{}");
 
 let total = 0;
