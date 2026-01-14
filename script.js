@@ -170,7 +170,6 @@ const progressFill = document.getElementById("progress-fill");
 const today = new Date();
 today.setHours(0, 0, 0, 0);
 const todayStr = today.toLocaleDateString("en-CA");
-
 const saved = JSON.parse(localStorage.getItem("completedDays") || "{}");
 
 let total = 0;
